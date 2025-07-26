@@ -33,7 +33,7 @@ class ProcessRunnerService:
     def __init__(
         self,
         cmd: list[str],
-        cwd: Path = Path(),
+        cwd: Path | None = None,
         stdout_callback: Callable[[str], Any] | None = None,
         stderr_callback: Callable[[str], Any] | None = None,
         timeout: float | None = None,

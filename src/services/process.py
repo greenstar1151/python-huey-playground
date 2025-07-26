@@ -75,7 +75,7 @@ class ProcessRunnerService:
                             await callback(text)
                         else:
                             # Run sync callback in a thread to avoid blocking
-                            await anyio.to_thread.run_sync(callback, text)
+                            await anyio.to_thread.run_sync(callback, text)  # type: ignore
                     except Exception as e:
                         # Log callback errors but don't stop stream processing
                         logger.warning("Callback error: %s", e, exc_info=True)
